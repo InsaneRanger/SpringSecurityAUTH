@@ -9,8 +9,12 @@ package learn.spring.springsecure.controller;
  * @return
  */
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.security.Principal;
 
 @RestController
 public class MainController {
@@ -21,8 +25,9 @@ public class MainController {
     }
 
     @GetMapping("/authenticated")
-    public String pageForAuthUsers() {
-        return "secured part of web service";
+    public String pageForAuthUsers(Principal principal) {
+        Authentication a = SecurityContextHolder.getContext().getAuthentication();
+        return "secured part of web service  - " + principal.getName();
     }
 
 }
