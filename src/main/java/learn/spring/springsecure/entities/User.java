@@ -1,7 +1,6 @@
 package learn.spring.springsecure.entities;
 
 import lombok.Data;
-import org.springframework.context.annotation.Profile;
 
 import javax.persistence.*;
 import java.util.Collection;
