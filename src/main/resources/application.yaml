@@ -7,7 +7,12 @@ spring:
   jpa:
     show-sql: true
     properties:
-      hibernare:
+      hibernate:
         dialect: org.hibernate.dialect.PostgreSQL95Dialect
         temp:
-          use_jdbc
+          use_jdbc_metadata_defaults: false
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=springsecurity
+    data-username: postgres
+    data-password: 1234
